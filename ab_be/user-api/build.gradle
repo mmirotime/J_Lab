@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(":ab-core")
+
+    implementation "$boot:spring-boot-starter-security"
+    implementation "$boot:spring-boot-starter-validation"
+}
