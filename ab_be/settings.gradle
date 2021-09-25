@@ -1,0 +1,30 @@
+rootProject.name = 'ab'
+
+["core", "user-api", "admin-api"].each {
+    def moduleDir = new File(rootDir, it)
+    if (!moduleDir.exists()) {
+        moduleDir.mkdirs()
+    }
+
+    def buildGradleFile = new File(moduleDir.absolutePath, "build.gradle")
+    if (!buildGradleFile.exists()) {
+        buildGradleFile.text = "dependencies {\n    \n}"
+    }
+
+    [
+            "src/main/java/com/jlab/ab",
+            "src/main/resources",
+            "src/test/java/com/jlab/ab",
+            "src/test/resources"
+    ].each {srcDir ->
+        def srcFolder = new File(moduleDir.absolutePath, srcDir)
+        if (!srcFolder.exists()) {
+            srcFolder.mkdirs()
+        }
+    }
+
+    def projectName = ":${rootProject.name}-${moduleDir.name}"
+    include projectName
+    project(projectName).projectDir = moduleDir
+
+}

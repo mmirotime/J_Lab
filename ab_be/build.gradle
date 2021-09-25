@@ -1,0 +1,69 @@
+buildscript {
+	ext {
+		springVersion = "2.5.5"
+		boot = "org.springframework.boot"
+		lombok = "org.projectlombok:lombok"
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("$boot:spring-boot-gradle-plugin:$springVersion")
+	}
+}
+
+allprojects {
+	group = "com.jlab.ab"
+	version = "0.0.1-SNAPSHOT"
+}
+
+subprojects {
+	apply plugin: "java"
+	apply plugin: boot
+	apply plugin: "io.spring.dependency-management"
+	apply plugin: "idea"
+
+	repositories {
+		mavenCentral()
+	}
+
+	sourceCompatibility = 11
+	targetCompatibility = 11
+
+	dependencies {
+		implementation "$boot:spring-boot-starter-web"
+		implementation "$boot:spring-boot-starter-security"
+
+		compileOnly lombok
+		testCompileOnly lombok
+		annotationProcessor lombok
+		testAnnotationProcessor lombok
+
+		developmentOnly "$boot:spring-boot-devtools"
+
+		testImplementation "$boot:spring-boot-starter-test"
+		testImplementation "org.springframework.security:spring-security-test"
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+
+}
+
+["core"].each {
+	def moduleDir = new File(projectDir, it)
+	def projectName = ":${rootProject.name}-${moduleDir.name}"
+	project(projectName) {
+		bootJar.enabled(false)
+		jar.enabled(true)
+	}
+}
+
+["user-api", "admin-api"].each {
+	def moduleDir = new File(projectDir, it)
+	def projectName = ":${rootProject.name}-${moduleDir.name}"
+	project(projectName) {
+
+	}
+}
