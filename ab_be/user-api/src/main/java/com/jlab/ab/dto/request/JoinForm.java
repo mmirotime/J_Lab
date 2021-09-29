@@ -1,6 +1,7 @@
 package com.jlab.ab.dto.request;
 
-import com.jlab.ab.domain.UserEntity;
+import com.jlab.ab.domain.User;
+import com.jlab.ab.domain.UserSex;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,28 +12,28 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class JoinForm {
-    private Long u_id;
+    private Long id;
 
     private String email;
 
     private String pwd;
 
-    private String u_name;
+    private String name;
 
-    private String phone_num;
+    private String phoneNum;
 
-    private String user_address;
+    private String address;
 
-    private char sex;
+    private UserSex sex;
 
-    public UserEntity toEntity(){
-        return UserEntity.builder()
-                .user_address(user_address)
+    public User toEntity(){
+        return User.builder()
+                .address(address)
                 .email(email)
                 .pwd(pwd)
                 .sex(sex)
-                .phone_num(phone_num)
-                .u_name(u_name)
+                .phoneNum(phoneNum)
+                .name(name)
                 .build();
     }
 }

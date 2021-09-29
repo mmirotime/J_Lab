@@ -32,6 +32,8 @@ subprojects {
 
 	dependencies {
 		implementation "$boot:spring-boot-starter-web"
+		implementation "$boot:spring-boot-starter-data-jpa"
+
 		implementation "$boot:spring-boot-starter-security"
 
 		compileOnly lombok
