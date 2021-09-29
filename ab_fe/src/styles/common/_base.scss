@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: '#cdc';
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
