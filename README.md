@@ -9,7 +9,7 @@
  - [UserApi 추가사항 및 이슈](https://github.com/mmirotime/J_Lab/blob/dev/ad_be/user-api/src/main/java/com/jlab/ab/user-api.md)
 
 ## admin-api
- - [AdminApi 추가사항 및 이슈](/ad_be/)
+ - [AdminApi 추가사항 및 이슈](./blob/dev/ad_be/)
 
 -------------
 
