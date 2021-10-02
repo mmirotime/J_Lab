@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @NoArgsConstructor
-public class UpdateForm {
+public class UserUpdateForm {
     private Long id;
 
     private String email;

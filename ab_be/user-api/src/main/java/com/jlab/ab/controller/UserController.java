@@ -2,7 +2,7 @@ package com.jlab.ab.controller;
 
 import com.jlab.ab.domain.User;
 import com.jlab.ab.dto.request.JoinForm;
-import com.jlab.ab.dto.request.UpdateForm;
+import com.jlab.ab.dto.request.UserUpdateForm;
 import com.jlab.ab.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -42,8 +42,8 @@ public class UserController { //http://localhost:8801/users/{id}?page=1&파라�
 
     //user 정보 수정하기
     @PutMapping("/{id}") //PathVariable 할때는 "/{변수}"
-    public ResponseEntity<Long> updateUser(@PathVariable Long id, @RequestBody UpdateForm updateForm){
-        Long userId = userService.updateUser(id, updateForm);
+    public ResponseEntity<Long> updateUser(@PathVariable Long id, @RequestBody UserUpdateForm userUpdateForm){
+        Long userId = userService.updateUser(id, userUpdateForm);
 
         return ResponseEntity.ok(userId);
     }

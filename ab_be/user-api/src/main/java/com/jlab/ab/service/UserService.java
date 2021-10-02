@@ -3,7 +3,7 @@ package com.jlab.ab.service;
 import com.jlab.ab.domain.User;
 import com.jlab.ab.repository.UserRepository;
 import com.jlab.ab.dto.request.JoinForm;
-import com.jlab.ab.dto.request.UpdateForm;
+import com.jlab.ab.dto.request.UserUpdateForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,14 +41,14 @@ public class UserService {
     }
 
     @Transactional
-    public Long updateUser(Long id, UpdateForm updateForm) {
+    public Long updateUser(Long id, UserUpdateForm userUpdateForm) {
         User user = userRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("찾는 유저가 없습니다."));
-        user.setAddress(updateForm.getAddress());
-        user.setName(updateForm.getName());
-        user.setPhoneNum(updateForm.getPhoneNum());
-        user.setSex(updateForm.getSex());
-        user.setPwd(updateForm.getPwd());
+        user.setAddress(userUpdateForm.getAddress());
+        user.setName(userUpdateForm.getName());
+        user.setPhoneNum(userUpdateForm.getPhoneNum());
+        user.setSex(userUpdateForm.getSex());
+        user.setPwd(userUpdateForm.getPwd());
         return user.getId();
     }
 
