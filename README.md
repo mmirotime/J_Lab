@@ -6,7 +6,7 @@
  - [Core 추가사항 및 이슈](https://github.com/mmirotime/J_Lab/blob/dev/ab_be/core/src/main/java/com/jlab/ab/core.md)
 
 ## user-api
- - [UserApi 추가사항 및 이슈](https://github.com/mmirotime/J_Lab/blob/dev/ad_be/user-api/src/main/java/com/jlab/ab/user-api.md)
+ - [UserApi 추가사항 및 이슈](https://github.com/mmirotime/J_Lab/blob/dev/ab_be/user-api/src/main/java/com/jlab/ab/user-api.md)
 
 ## admin-api
  - [AdminApi 추가사항 및 이슈](https://github.com/mmirotime/J_Lab/blob/dev/ab_be/admin-api/src/main/java/com/jlab/ab/admin-api.md)
