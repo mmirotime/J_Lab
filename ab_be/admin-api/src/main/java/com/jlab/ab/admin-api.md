@@ -1,4 +1,4 @@
-# Admin Api 추가사항 및 이슈 작성하는곳
+# Admin Api 추가사항 및 이슈
 
 > 코드변경 및 추가  
  - ex) miro
