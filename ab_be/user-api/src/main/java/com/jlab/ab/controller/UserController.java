@@ -3,6 +3,7 @@ package com.jlab.ab.controller;
 import com.jlab.ab.domain.User;
 import com.jlab.ab.dto.request.JoinForm;
 import com.jlab.ab.dto.request.UserUpdateForm;
+import com.jlab.ab.dto.response.UserList;
 import com.jlab.ab.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,10 +27,20 @@ public class UserController { //http://localhost:8801/users/{id}?page=1&파라�
 
     //user 정보 하나 불러오기
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Long id){
-        User user = userService.getUser(id);
+    public ResponseEntity<UserList> getUser(@PathVariable Long id){
+        UserList userList = userService.getUser(id);
 
-        return ResponseEntity.ok(user);
+//        아래를 서비스에서 처리할 지, 컨트롤러에서 처리할지
+
+//                 userList.builder()
+//                .address(user.getAddress())
+//                .email(user.getEmail())
+//                .name(user.getName())
+//                .phoneNum(user.getPhoneNum())
+//                .id(user.getId())
+//                .build();
+
+        return ResponseEntity.ok(userList);
     }
 
     //user 리스트 불러오기
