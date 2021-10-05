@@ -4,9 +4,11 @@ buildscript {
 		boot = "org.springframework.boot"
 		lombok = "org.projectlombok:lombok"
 	}
+
 	repositories {
 		mavenCentral()
 	}
+
 	dependencies {
 		classpath("$boot:spring-boot-gradle-plugin:$springVersion")
 	}

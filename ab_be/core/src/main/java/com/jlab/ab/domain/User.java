@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor
-public class User extends BaseEntity{
+public class User extends BaseEntity {
 
     //Java는 카멜케이스
 

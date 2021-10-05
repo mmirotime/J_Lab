@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class UpdateForm {
+
     private String Name;
     private Integer Code;
     private String Type;

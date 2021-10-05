@@ -1,14 +1,11 @@
 package com.jlab.ab.dto.response;
 
-import com.jlab.ab.domain.User;
 import com.jlab.ab.domain.UserSex;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 public class UserList {
     private Long id;
@@ -32,4 +29,5 @@ public class UserList {
         this.address = address;
         this.sex = sex;
     }
+
 }

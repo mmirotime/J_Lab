@@ -38,8 +38,9 @@ public class ItemController {
         return ResponseEntity.ok(itemId);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<String>deleteItem(@PathVariable Long id){
+    public ResponseEntity<String> deleteItem(@PathVariable Long id){
         itemService.deleteItem(id);
         return ResponseEntity.ok(id+"의 상품이 삭제되었습니다.");
     }
+
 }
