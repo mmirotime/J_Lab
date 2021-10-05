@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 // @Bean 추적 못하는 외부 라이브러리 등록
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
+    User findByEmail(String email);
 }

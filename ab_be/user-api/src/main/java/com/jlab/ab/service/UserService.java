@@ -1,7 +1,9 @@
 package com.jlab.ab.service;
 
 import com.jlab.ab.domain.User;
+import com.jlab.ab.domain.UserExceptionType;
 import com.jlab.ab.dto.response.UserList;
+import com.jlab.ab.exception.UserException;
 import com.jlab.ab.repository.UserRepository;
 import com.jlab.ab.dto.request.JoinForm;
 import com.jlab.ab.dto.request.UserUpdateForm;
@@ -20,6 +22,10 @@ public class UserService {
 
     @Transactional //메서드 안에 실행 순서를 보장해줌. > 순서가 엉켜서 생기는 문제 방지. / 세이브도 진행해줌. (스프링프레임워크!!!)
     public Long createUser(JoinForm joinForm) {
+        User oldUser = userRepository.findByEmail(joinForm.getEmail());
+        if(oldUser!=null){
+            throw new UserException(UserExceptionType.TEST_ERROR);
+        }
         User request = joinForm.toEntity();
         User newUser = userRepository.save(request);
 
@@ -29,7 +35,9 @@ public class UserService {
     @Transactional(readOnly = true)
     public UserList getUser(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(()->new IllegalArgumentException("찾는 유저가 없습니다."));
+                .orElseThrow(()-> {
+                    return new UserException(UserExceptionType.TEST_ERROR);
+                });
         UserList userList = new UserList();
 
         userList.builder()
@@ -44,8 +52,7 @@ public class UserService {
 
     @Transactional(readOnly = true) // 조회성능 향상.
     public List<User> getUserList() {
-        List<User> userList = userRepository.findAll();
-        return userList;
+        return userRepository.findAll();
     }
 
     @Transactional

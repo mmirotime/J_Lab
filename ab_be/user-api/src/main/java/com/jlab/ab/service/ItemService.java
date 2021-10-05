@@ -1,7 +1,7 @@
 package com.jlab.ab.service;
 
 import com.jlab.ab.domain.Item;
-import com.jlab.ab.domain.ItemRepository;
+import com.jlab.ab.repository.ItemRepository;
 import com.jlab.ab.dto.request.CreateForm;
 import com.jlab.ab.dto.request.UpdateForm;
 import org.springframework.beans.factory.annotation.Autowired;
