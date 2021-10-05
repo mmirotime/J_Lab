@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+//@RestController
 @RequestMapping("/users")
-public class UserController { //http://localhost:8801/users/{id}?page=1&파라미터값
+@RestControllerAdvice
+public class UserController { //http://localhost:8081/users/{id}?page=1&파라미터값
     @Autowired
     public UserService userService;
 
     //user Create
     @PostMapping
-    public ResponseEntity<Long> join(@RequestBody JoinForm joinForm){
-        Long userId = userService.createUser(joinForm);
-
-        return ResponseEntity.ok(userId);
+    public Long join(@RequestBody JoinForm joinForm){
+        Long userid = userService.createUser(joinForm);
+        return userid;
     }
 
     //user 정보 하나 불러오기
@@ -65,4 +65,5 @@ public class UserController { //http://localhost:8801/users/{id}?page=1&파라�
         String msg = userService.deleteUser(id);
         return ResponseEntity.ok(msg);
     }
+
 }
