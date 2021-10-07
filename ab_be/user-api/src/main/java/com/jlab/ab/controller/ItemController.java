@@ -2,13 +2,13 @@ package com.jlab.ab.controller;
 
 
 import com.jlab.ab.domain.Item;
-import com.jlab.ab.dto.request.CreateForm;
-import com.jlab.ab.dto.request.UpdateForm;
+import com.jlab.ab.dto.request.ItemCreateForm;
+import com.jlab.ab.dto.request.ItemUpdateForm;
+import com.jlab.ab.dto.response.ItemReponse;
 import com.jlab.ab.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 
 @RestController
@@ -19,20 +19,25 @@ public class ItemController {
     private final ItemService itemService;  //final 불변성=> 안전/
 
     @GetMapping("/{id}")
-    public ResponseEntity<Item> getItem(@PathVariable Long id){
-        Item item = itemService.getItem(id);
+    public ResponseEntity<ItemReponse> getItem(@PathVariable Long id){
+        ItemReponse item = itemService.getItem(id);
         return ResponseEntity.ok(item);
     }
 
+    public ResponseEntity<Iterable<Item>> getItemList(){
+        Iterable<Item> itemList = itemService.getItemlist();
+        return ResponseEntity.ok(itemList);
+    }
+
     @PostMapping("/{id}")
-    public ResponseEntity<Long> createItem(@RequestBody CreateForm createForm){
+    public ResponseEntity<Long> createItem(@RequestBody ItemCreateForm createForm){
         Long itemId = itemService.createItem(createForm);
 
         return ResponseEntity.ok(itemId);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Long> updateItem(@PathVariable Long id, @RequestBody UpdateForm updateForm ){
+    public ResponseEntity<Long> updateItem(@PathVariable Long id, @RequestBody ItemUpdateForm updateForm ){
         Long itemId = itemService.updateItem(id, updateForm);
 
         return ResponseEntity.ok(itemId);

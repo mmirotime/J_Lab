@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class CreateForm {
+public class ItemCreateForm {
 
     private String name;
     private Integer code;

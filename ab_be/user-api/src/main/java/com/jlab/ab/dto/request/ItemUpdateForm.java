@@ -9,10 +9,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class UpdateForm {
-    private String Name;
-    private Integer Code;
-    private String Type;
-    private Integer Price;
+public class ItemUpdateForm {
+    private String name;
+    private Integer code;
+    private String type;
+    private Integer price;
 
 }
