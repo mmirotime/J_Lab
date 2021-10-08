@@ -24,7 +24,7 @@ public class UserService {
     public Long createUser(JoinForm joinForm) {
         User oldUser = userRepository.findByEmail(joinForm.getEmail());
         if(oldUser!=null){
-            throw new UserException(UserExceptionType.TEST_ERROR);
+            throw new UserException(UserExceptionType.NOT_FOUND_USER);
         }
         User request = joinForm.toEntity();
         User newUser = userRepository.save(request);
@@ -33,21 +33,19 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public UserList getUser(Long id) {
+    public User getUser(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(()-> {
-                    return new UserException(UserExceptionType.TEST_ERROR);
-                });
-        UserList userList = new UserList();
-
-        userList.builder()
-                .address(user.getAddress())
-                .email(user.getEmail())
-                .name(user.getName())
-                .phoneNum(user.getPhoneNum())
-                .id(user.getId())
-                .build();
-        return userList;
+                .orElseThrow(()-> new UserException(UserExceptionType.NOT_FOUND_USER));
+//
+//        user.builder()
+//                .address(user.getAddress())
+//                .email(user.getEmail())
+//                .name(user.getName())
+//                .phoneNum(user.getPhoneNum())
+//                .id(user.getId())
+//                .sex(user.getSex())
+//                .build();
+        return user;
     }
 
     @Transactional(readOnly = true) // 조회성능 향상.
@@ -64,6 +62,8 @@ public class UserService {
         user.setPhoneNum(userUpdateForm.getPhoneNum());
         user.setSex(userUpdateForm.getSex());
         user.setPwd(userUpdateForm.getPwd());
+        user.setEmail(userUpdateForm.getEmail());
+
         return user.getId();
     }
 

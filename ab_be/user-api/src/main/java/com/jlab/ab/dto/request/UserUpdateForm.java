@@ -12,7 +12,6 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class UserUpdateForm {
-    private Long id;
 
     private String email;
 
@@ -28,6 +27,7 @@ public class UserUpdateForm {
 
     public User toEntity(){
         return User.builder()
+                .email(email)
                 .address(address)
                 .pwd(pwd)
                 .sex(sex)

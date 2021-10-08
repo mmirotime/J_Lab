@@ -27,8 +27,8 @@ public class UserController { //http://localhost:8081/users/{id}?page=1&파라�
 
     //user 정보 하나 불러오기
     @GetMapping("/{id}")
-    public ResponseEntity<UserList> getUser(@PathVariable Long id){
-        UserList userList = userService.getUser(id);
+    public ResponseEntity<User> getUser(@PathVariable Long id){
+        User user = userService.getUser(id);
 
 //        아래를 서비스에서 처리할 지, 컨트롤러에서 처리할지
 
@@ -40,7 +40,7 @@ public class UserController { //http://localhost:8081/users/{id}?page=1&파라�
 //                .id(user.getId())
 //                .build();
 
-        return ResponseEntity.ok(userList);
+        return ResponseEntity.ok(user);
     }
 
     //user 리스트 불러오기

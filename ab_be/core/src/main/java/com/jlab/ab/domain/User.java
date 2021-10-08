@@ -23,6 +23,7 @@ public class User extends BaseEntity {
 
     @Column(nullable = false)
     //email을 id로 이용함.
+    @Setter
     private String email;
 
     @Column(nullable = false)

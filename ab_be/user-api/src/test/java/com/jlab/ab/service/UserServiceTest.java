@@ -90,7 +90,7 @@ class UserServiceTest {
         given(userRepository.findById(givenId)).willReturn(Optional.of(user));
 
         // when
-        UserList response = userService.getUser(givenId);
+        User response = userService.getUser(givenId);
 
         // then
         assertAll(
