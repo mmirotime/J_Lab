@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ItemService {
 
+    // FIXME : 10월 11일 itemRepository 멤버 변수를 private final 및 생성자 주입 방식으로 변경하기 (Jelly)
     @Autowired
     private ItemRepository itemRepository;
 
@@ -24,12 +25,13 @@ public class ItemService {
     }
 
     //새로 추가한 부분
+    // FIXME : 10월 11일 메서드명 카멜 케이스로 수정하기 (Jelly)
+    // FIXME : 10월 11일 반환 값 Entity → DTO로 변경하기 (Jelly)
     @Transactional(readOnly = true)
     public Iterable<Item> getItemlist(){
         Iterable<Item> itemList = itemRepository.findAll();
         return itemList;
     }
-
 
     @Transactional
     public Long createItem(ItemCreateForm createForm) {
@@ -51,6 +53,7 @@ public class ItemService {
         return item.getId();
     }
 
+    // FIXME : 10월 11일 서비스 클래스 내 DB 삽입, 수정, 삭제 로직에는 @Transactional 어노테이션 붙이기 (Jelly)
     public void deleteItem(Long id){
         Item item = itemRepository.findById(id).orElseThrow(()->new ItemNotFoundException("찾는 상품이 없습니다."));
         itemRepository.delete(item);

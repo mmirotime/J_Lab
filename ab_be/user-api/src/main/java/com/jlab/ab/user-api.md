@@ -7,4 +7,5 @@
 -------
   
 > 이슈
- - write here
+ - 10월 11일
+   - ItemService : getItemList() 리턴 타입 Entity → DTO로 수정 필요

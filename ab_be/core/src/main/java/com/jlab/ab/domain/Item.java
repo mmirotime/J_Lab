@@ -14,13 +14,14 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @Column(nullable = false)
     private Integer code;
 
     @Column(nullable = false)
     private String name;
 
+    // TODO : Enum 타입으로 변경하기 (Jelly)
     @Column(nullable = false)
     private String type;
 
@@ -39,6 +40,7 @@ public class Item {
 
     @Builder
     public Item(Integer code, String name, String type, Integer price){
+        // FIXME : 10월 11일 등호 좌우 1칸씩 띄우기 (jelly)
         this.code =code;
         this.name =name;
         this.price =price;
