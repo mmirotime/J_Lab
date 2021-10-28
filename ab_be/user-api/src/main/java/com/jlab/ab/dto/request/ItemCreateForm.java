@@ -17,11 +17,11 @@ public class ItemCreateForm {
     private Integer code;
     private String type;
     private Integer price;
-//    private String itemOption;
-//    private String itemSize;
-//    private Number itemQuantity;
-//    private String itemColor;
-//    private Number itemSale;
+//    private String Option;
+//    private String Size;
+//    private Number Quantity;
+//    private String Color;
+//    private Number Sale;
 
 
 

@@ -2,13 +2,17 @@ package com.jlab.ab.dto.response;
 
 
 import com.jlab.ab.domain.Item;
+import com.jlab.ab.repository.ItemRepository;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Getter
 @NoArgsConstructor
-public class ItemReponse {
+public class ItemResponse {
     private String name;
     private Integer code;
     private String type;
@@ -16,13 +20,13 @@ public class ItemReponse {
     private Long id;
 
 
-    @Builder
-    public ItemReponse(Item item){
+    public ItemResponse(Item item){
         this.id = item.getId();
         this.name = item.getName();
         this.code = item.getCode();
         this.type = item.getType();
         this.price = item.getPrice();
     }
+
 
 }

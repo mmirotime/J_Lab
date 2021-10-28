@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -40,11 +41,10 @@ public class Item {
 
     @Builder
     public Item(Integer code, String name, String type, Integer price){
-        // FIXME : 10월 11일 등호 좌우 1칸씩 띄우기 (jelly)
-        this.code =code;
-        this.name =name;
-        this.price =price;
-        this.type =type;
+        this.code = code;
+        this.name = name;
+        this.price = price;
+        this.type = type;
     }
 
     //item update

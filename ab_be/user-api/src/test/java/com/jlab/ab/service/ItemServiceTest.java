@@ -1,10 +1,10 @@
 package com.jlab.ab.service;
 
 import com.jlab.ab.domain.Item;
-import com.jlab.ab.domain.ItemRepository;
+import com.jlab.ab.repository.ItemRepository;
 import com.jlab.ab.dto.request.ItemCreateForm;
 import com.jlab.ab.dto.request.ItemUpdateForm;
-import com.jlab.ab.dto.response.ItemReponse;
+import com.jlab.ab.dto.response.ItemResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -74,7 +74,7 @@ class ItemServiceTest {
         given(itemRepository.findById(anyLong())).willReturn(Optional.of(item));
 
         // when
-        ItemReponse response = itemService.getItem(item.getId());
+        ItemResponse response = itemService.getItem(item.getId());
 
         // then
         assertAll(

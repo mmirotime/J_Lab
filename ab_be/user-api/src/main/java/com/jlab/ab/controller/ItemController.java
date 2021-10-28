@@ -4,11 +4,13 @@ package com.jlab.ab.controller;
 import com.jlab.ab.domain.Item;
 import com.jlab.ab.dto.request.ItemCreateForm;
 import com.jlab.ab.dto.request.ItemUpdateForm;
-import com.jlab.ab.dto.response.ItemReponse;
+import com.jlab.ab.dto.response.ItemResponse;
 import com.jlab.ab.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -19,13 +21,13 @@ public class ItemController {
     private final ItemService itemService;  //final 불변성=> 안전/
 
     @GetMapping("/{id}")
-    public ResponseEntity<ItemReponse> getItem(@PathVariable Long id){
-        ItemReponse item = itemService.getItem(id);
+    public ResponseEntity<ItemResponse> getItem(@PathVariable Long id){
+        ItemResponse item = itemService.getItem(id);
         return ResponseEntity.ok(item);
     }
 
-    public ResponseEntity<Iterable<Item>> getItemList(){
-        Iterable<Item> itemList = itemService.getItemlist();
+    public ResponseEntity<List<ItemResponse>> getItemList(){
+        List<ItemResponse> itemList = itemService.getItemList();
         return ResponseEntity.ok(itemList);
     }
 
